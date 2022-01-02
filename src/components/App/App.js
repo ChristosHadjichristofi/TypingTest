@@ -1,4 +1,5 @@
 import React from 'react';
+import Footer from '../Footer/Footer';
 import Landing from '../Landing/Landing';
 import Nav from '../Nav/Nav';
 import styles from "./App.module.css";
@@ -13,6 +14,7 @@ const App = () => {
             {/* Challenge Section */}
 
             {/* Footer */}
+            <Footer/>
         </div>
     );
 };

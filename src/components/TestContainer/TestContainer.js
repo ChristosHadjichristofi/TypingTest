@@ -4,14 +4,22 @@ import TypingChallengeContainer from '../TypingChallengeContainer/TypingChalleng
 import styles from "./TestContainer.module.css";
 
 const TestContainer = ({ words, chars, wpm }) => {
+    const timeLeft = 30;
+
     return (
         <div className={styles.test_container}>
-            <div data-aos="fade-up" className={styles.typing_challenge_content}>
-                <TypingChallengeContainer words = {words} chars = {chars} wpm = {wpm}/>
-            </div>
-            {/* <div className={styles.try_again_container}>
-                <TryAgain words = {words} chars = {chars} wpm = {wpm}/>
-            </div> */}
+            {
+                timeLeft > 0 ? (
+                    <div data-aos="fade-up" className={styles.typing_challenge_content}>
+                        <TypingChallengeContainer words = {words} chars = {chars} wpm = {wpm}/>
+                    </div>
+                )
+                : (
+                    <div className={styles.try_again_container}>
+                        <TryAgain words = {words} chars = {chars} wpm = {wpm}/>
+                    </div>
+                )
+            }
         </div>
     );
 };

@@ -1,5 +1,6 @@
 import React from 'react';
 import ChallengeDetailsCard from '../ChallengeDetailsCard/ChallengeDetailsCard';
+import TypingChallenge from '../TypingChallenge/TypingChallenge';
 import styles from './TypingChallengeContainer.module.css'
 
 const TypingChallengeContainer = ({ words, chars, wpm }) => {
@@ -16,7 +17,7 @@ const TypingChallengeContainer = ({ words, chars, wpm }) => {
             </div>
             {/* Typing Challenge Section */}
             <div className={styles.typewriter_container}>
-                <h1>Lets see how that rolls</h1>
+                <TypingChallenge selectedParagraph={"Hmmm does this work?"}/>
             </div>
 
         </div>

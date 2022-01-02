@@ -1,0 +1,72 @@
+.typing_challenge {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    align-items: center;
+    justify-content: center;
+}
+
+.timer_container {
+    margin: 1rem;
+}
+
+.timer {
+    font-size: 2.2rem;
+    font-weight: 600;
+    margin: 0;
+    text-align: center;
+}
+
+.timer_info {
+    margin: 0;
+    margin-top: -6px;
+    color: #dd5044;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+.textarea_container {
+    margin: 1rem;
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    width: 80%;
+}
+
+.textarea_left,
+.textarea_right {
+    display: flex;
+    width: 50%;
+    flex-grow: 1;
+}
+
+.textarea {
+    text-align: center;
+    flex-grow: 1;
+    height: 400px;
+    width: 100%;
+    padding: 0.7rem;
+    line-height: 18px;
+    flex-wrap: wrap;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.26);
+    transition: all 0.2s;
+    overflow: scroll;
+}
+
+.textarea::-webkit-scrollbar {
+    display: none;
+}
+
+.textarea {
+    scrollbar-width: none;
+}
+
+.textarea:hover {
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.12), 0 10px 10px rgba(0, 0, 0, 0.26);
+}
+
+.test_paragraph {
+    font-size: 0.8rem;
+    background-color: rgb(156, 197, 212);
+    padding: 0.75rem;
+}

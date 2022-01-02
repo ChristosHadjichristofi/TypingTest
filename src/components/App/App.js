@@ -1,4 +1,5 @@
 import React from 'react';
+import ChallengeSection from '../ChallengeSection/ChallengeSection';
 import Footer from '../Footer/Footer';
 import Landing from '../Landing/Landing';
 import Nav from '../Nav/Nav';
@@ -12,7 +13,7 @@ const App = () => {
             {/* Landing page */}
             <Landing/>
             {/* Challenge Section */}
-
+            <ChallengeSection/>
             {/* Footer */}
             <Footer/>
         </div>

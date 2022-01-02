@@ -1,4 +1,5 @@
 import React from 'react';
+import Landing from '../Landing/Landing';
 import Nav from '../Nav/Nav';
 import styles from "./App.module.css";
 
@@ -8,7 +9,7 @@ const App = () => {
             {/* nav selection */}
             <Nav/>
             {/* Landing page */}
-
+            <Landing/>
             {/* Challenge Section */}
 
             {/* Footer */}

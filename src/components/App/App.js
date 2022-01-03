@@ -29,7 +29,7 @@ class App extends React.Component {
             const letters = paragraphArr.map(letter => {
                 return {
                     letter: letter,
-                    status: "notAttempted"
+                    status: "not_attempted"
                 }
             });
 

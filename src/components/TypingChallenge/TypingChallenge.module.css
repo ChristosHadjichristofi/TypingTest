@@ -41,7 +41,7 @@
 }
 
 .textarea {
-    text-align: center;
+    /* text-align: center; */
     flex-grow: 1;
     height: 400px;
     width: 100%;

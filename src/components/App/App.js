@@ -10,7 +10,7 @@ const apiURL = "http://metaphorpsum.com/paragraphs/1/9";
 
 class App extends React.Component {
     state = {
-        selectedParagraph: "undefined testing",
+        selectedParagraph: "",
         letters: [],
         timerStarted: false,
         timeLeft: totalTime,
@@ -35,10 +35,12 @@ class App extends React.Component {
 
             this.setState({ letters : letters })
         });
-
-        
     }
 
+    handleUserInput = (inputValue) => {
+        console.log(inputValue)
+    }
+    
     render() {
         return (
             <div className={styles.app}>
@@ -55,6 +57,7 @@ class App extends React.Component {
                     timeLeft = {this.state.timeLeft}
                     timerStarted = {this.state.timerStarted}
                     letters = {this.state.letters}
+                    onInputChange = {this.handleUserInput}
                 />
                 {/* Footer */}
                 <Footer/>

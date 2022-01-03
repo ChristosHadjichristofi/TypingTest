@@ -3,7 +3,7 @@ import TryAgain from '../TryAgain/TryAgain';
 import TypingChallengeContainer from '../TypingChallengeContainer/TypingChallengeContainer';
 import styles from "./TestContainer.module.css";
 
-const TestContainer = ({ selectedParagraph, words, chars, wpm, timeLeft, timerStarted, letters }) => {
+const TestContainer = ({ selectedParagraph, words, chars, wpm, timeLeft, timerStarted, letters, onInputChange }) => {
 
     console.log('letters = ', letters)
     return (
@@ -19,6 +19,7 @@ const TestContainer = ({ selectedParagraph, words, chars, wpm, timeLeft, timerSt
                             timerStarted = {timerStarted}
                             selectedParagraph = {selectedParagraph}
                             letters = {letters}
+                            onInputChange = {onInputChange}
                         />
                     </div>
                 )

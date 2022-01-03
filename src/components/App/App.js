@@ -6,6 +6,7 @@ import Nav from '../Nav/Nav';
 import styles from "./App.module.css";
 
 const totalTime = 60;
+const apiURL = "http://metaphorpsum.com/paragraphs/1/9";
 
 class App extends React.Component {
     state = {
@@ -15,6 +16,12 @@ class App extends React.Component {
         words: 0,
         chars: 0,
         wpm: 0
+    }
+
+    componentDidMount() {
+        fetch(apiURL)
+        .then(response => response.text())
+        .then(paragraph => this.setState({ selectedParagraph : paragraph }))
     }
 
     render() {

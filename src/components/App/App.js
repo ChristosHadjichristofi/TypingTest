@@ -10,7 +10,8 @@ const apiURL = "http://metaphorpsum.com/paragraphs/1/9";
 
 class App extends React.Component {
     state = {
-        selectedParagraph: "Hello World!",
+        selectedParagraph: "undefined testing",
+        letters: [],
         timerStarted: false,
         timeLeft: totalTime,
         words: 0,
@@ -21,7 +22,21 @@ class App extends React.Component {
     componentDidMount() {
         fetch(apiURL)
         .then(response => response.text())
-        .then(paragraph => this.setState({ selectedParagraph : paragraph }))
+        .then(paragraph => {
+            this.setState({ selectedParagraph : paragraph })
+
+            const paragraphArr = this.state.selectedParagraph.split("");
+            const letters = paragraphArr.map(letter => {
+                return {
+                    letter: letter,
+                    status: "notAttempted"
+                }
+            });
+
+            this.setState({ letters : letters })
+        });
+
+        
     }
 
     render() {
@@ -33,12 +48,13 @@ class App extends React.Component {
                 <Landing/>
                 {/* Challenge Section */}
                 <ChallengeSection
-                    selectedParagraph={this.state.selectedParagraph}
-                    words={this.state.words}
-                    chars={this.state.chars}
-                    wpm={this.state.wpm}
-                    timeLeft={this.state.timeLeft}
-                    timerStarted={this.state.timerStarted}
+                    selectedParagraph = {this.state.selectedParagraph}
+                    words = {this.state.words}
+                    chars = {this.state.chars}
+                    wpm = {this.state.wpm}
+                    timeLeft = {this.state.timeLeft}
+                    timerStarted = {this.state.timerStarted}
+                    letters = {this.state.letters}
                 />
                 {/* Footer */}
                 <Footer/>

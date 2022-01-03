@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './TypingChallenge.module.css';
 
-const TypingChallenge = ({ selectedParagraph, timeLeft, timerStarted }) => {
+const TypingChallenge = ({ selectedParagraph, timeLeft, timerStarted, letters }) => {
     return (
         <div className={styles.typing_challenge}>
             <div className={styles.timer_container}>

@@ -4,6 +4,7 @@ import Footer from '../Footer/Footer';
 import Landing from '../Landing/Landing';
 import Nav from '../Nav/Nav';
 import styles from "./App.module.css";
+import { SAMPLE_PARAGRAPHS } from "../../data/sampleParagraphs";
 
 const totalTime = 60;
 const apiURL = "http://metaphorpsum.com/paragraphs/1/9";
@@ -32,9 +33,25 @@ class App extends React.Component {
                 }
             });
 
-            this.setState({ ...defaultState, letters: letters, selectedParagraph: paragraph })
+            this.setState({ ...defaultState, letters: letters, selectedParagraph: paragraph });
         });
     };
+
+    fetchFallbackParagraph = () => {
+        const paragraph = SAMPLE_PARAGRAPHS[
+            Math.floor(Math.random() * SAMPLE_PARAGRAPHS.length)
+        ];
+
+        const paragraphArr = paragraph.split("");
+        const letters = paragraphArr.map(letter => {
+            return {
+                letter: letter,
+                status: "not_attempted"
+            }
+        });
+
+        this.setState({ ...defaultState, letters: letters, selectedParagraph: paragraph });
+    }
 
     componentDidMount() {
         this.fetchParagraph();

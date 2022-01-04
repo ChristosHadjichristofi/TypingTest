@@ -5,7 +5,6 @@ import styles from "./TestContainer.module.css";
 
 const TestContainer = ({ selectedParagraph, words, chars, wpm, timeLeft, timerStarted, letters, onInputChange }) => {
 
-    console.log('letters = ', letters)
     return (
         <div className={styles.test_container}>
             {

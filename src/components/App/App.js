@@ -23,9 +23,7 @@ class App extends React.Component {
         fetch(apiURL)
         .then(response => response.text())
         .then(paragraph => {
-            this.setState({ selectedParagraph : paragraph })
-
-            const paragraphArr = this.state.selectedParagraph.split("");
+            const paragraphArr = paragraph.split("");
             const letters = paragraphArr.map(letter => {
                 return {
                     letter: letter,
@@ -33,12 +31,53 @@ class App extends React.Component {
                 }
             });
 
-            this.setState({ letters : letters })
+            this.setState({ letters: letters, selectedParagraph: paragraph })
         });
     }
 
     handleUserInput = (inputValue) => {
         if (!this.state.timerStarted) this.startTimer();
+
+        const chars = inputValue.length;
+        const words = inputValue.split(" ").filter(i => i).length;
+        const index = chars - 1;
+
+        /** logic was followed from the tutorial
+         *  1. Fixed when ctrl + a and delete all to make them not_attempted
+         *  TODO:
+         *  1. When ctrl + backspace to make the letters of the word deleted not_attempted
+         */
+        if (index < 0) {
+            
+            const letters = this.state.letters;
+            letters.forEach(letter => {
+                letter.status = "not_attempted";
+            });
+
+            this.setState({
+                chars: chars,
+                words: words
+            });
+
+            return;
+        }
+
+        if (index >= this.state.selectedParagraph.length) {
+            this.setState({
+                chars: chars,
+                words: words
+            });
+
+            return;
+        }
+
+        const letters = this.state.letters;
+        if (!(index === this.state.selectedParagraph.length - 1)) letters[index + 1].status = "not_attempted";
+
+        const isCorrect = inputValue[index] === letters[index].letter;
+        letters[index].status = isCorrect ? "correct" : "incorrect";
+
+        this.setState({ letters: letters, words: words, chars: chars })
     };
     
     startTimer = () => {

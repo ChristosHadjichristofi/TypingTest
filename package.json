@@ -2,7 +2,7 @@
   "name": "typingtest",
   "version": "0.1.0",
   "private": false,
-  "hompage": "https://christoshadjichristofi.github.io/TypingTest",
+  "hompage": "https://christoshadjichristofi.github.io/TypingTest/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",

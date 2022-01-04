@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from "./TryAgain.module.css";
 
-const TryAgain = ({ words, chars, wpm }) => {
+const TryAgain = ({ words, chars, wpm, restart }) => {
     return (
         <div className={styles.try_again_container}>
             <h1>Results</h1>
@@ -12,7 +12,12 @@ const TryAgain = ({ words, chars, wpm }) => {
             </div>
 
             <div>
-                <button className={`${styles.end_buttons} ${styles.start_again_btn} `}>Retry</button>
+                <button 
+                    onClick={() => restart()}
+                    className={`${styles.end_buttons} ${styles.start_again_btn} `}
+                >
+                    Retry
+                </button>
                 <button 
                     onClick={() => {
                         window.open("https://www.facebook.com/sharer/sharer.php?u=Check!", "facebook-share-dialog", "width=800, height=600")

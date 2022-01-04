@@ -7,19 +7,20 @@ import styles from "./App.module.css";
 
 const totalTime = 60;
 const apiURL = "http://metaphorpsum.com/paragraphs/1/9";
+const defaultState = {
+    selectedParagraph: "",
+    letters: [],
+    timerStarted: false,
+    timeLeft: totalTime,
+    words: 0,
+    chars: 0,
+    wpm: 0
+};
 
 class App extends React.Component {
-    state = {
-        selectedParagraph: "",
-        letters: [],
-        timerStarted: false,
-        timeLeft: totalTime,
-        words: 0,
-        chars: 0,
-        wpm: 0
-    }
+    state = defaultState;
 
-    componentDidMount() {
+    fetchParagraph = () => {
         fetch(apiURL)
         .then(response => response.text())
         .then(paragraph => {
@@ -31,9 +32,13 @@ class App extends React.Component {
                 }
             });
 
-            this.setState({ letters: letters, selectedParagraph: paragraph })
+            this.setState({ ...defaultState, letters: letters, selectedParagraph: paragraph })
         });
-    }
+    };
+
+    componentDidMount() {
+        this.fetchParagraph();
+    };
 
     handleUserInput = (inputValue) => {
         if (!this.state.timerStarted) this.startTimer();
@@ -94,6 +99,10 @@ class App extends React.Component {
         }, 1000);
     };
 
+    restart = () => {
+        this.fetchParagraph();
+    };
+
     render() {
         return (
             <div className={styles.app}>
@@ -111,6 +120,7 @@ class App extends React.Component {
                     timerStarted = {this.state.timerStarted}
                     letters = {this.state.letters}
                     onInputChange = {this.handleUserInput}
+                    restart = {this.restart}
                 />
                 {/* Footer */}
                 <Footer/>

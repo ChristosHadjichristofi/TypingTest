@@ -3,13 +3,13 @@ import TryAgain from '../TryAgain/TryAgain';
 import TypingChallengeContainer from '../TypingChallengeContainer/TypingChallengeContainer';
 import styles from "./TestContainer.module.css";
 
-const TestContainer = ({ selectedParagraph, words, chars, wpm, timeLeft, timerStarted, letters, onInputChange }) => {
+const TestContainer = ({ selectedParagraph, words, chars, wpm, timeLeft, timerStarted, letters, onInputChange, restart }) => {
 
     return (
         <div className={styles.test_container}>
             {
                 timeLeft > 0 ? (
-                    <div data-aos="fade-up" className={styles.typing_challenge_content}>
+                    <div className={styles.typing_challenge_content}>
                         <TypingChallengeContainer 
                             words = {words} 
                             chars = {chars} 
@@ -24,7 +24,12 @@ const TestContainer = ({ selectedParagraph, words, chars, wpm, timeLeft, timerSt
                 )
                 : (
                     <div className={styles.try_again_container}>
-                        <TryAgain words = {words} chars = {chars} wpm = {wpm}/>
+                        <TryAgain 
+                            words = {words} 
+                            chars = {chars} 
+                            wpm = {wpm}
+                            restart = {restart}
+                        />
                     </div>
                 )
             }

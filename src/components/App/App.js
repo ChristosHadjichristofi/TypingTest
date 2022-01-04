@@ -95,7 +95,11 @@ class App extends React.Component {
 
         const letters = this.state.letters;
         if (!(index === this.state.selectedParagraph.length - 1)) letters[index + 1].status = "not_attempted";
-
+        else {
+            this.setState({ chars: chars, words: words, timeLeft: 0 });
+            return;
+        }
+        
         const isCorrect = inputValue[index] === letters[index].letter;
         letters[index].status = isCorrect ? "correct" : "incorrect";
 

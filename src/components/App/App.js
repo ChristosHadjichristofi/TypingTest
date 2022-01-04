@@ -54,7 +54,7 @@ class App extends React.Component {
     }
 
     componentDidMount() {
-        this.fetchParagraph();
+        this.fetchFallbackParagraph();
     };
 
     handleUserInput = (inputValue) => {
@@ -117,7 +117,7 @@ class App extends React.Component {
     };
 
     restart = () => {
-        this.fetchParagraph();
+        this.fetchFallbackParagraph();
     };
 
     render() {

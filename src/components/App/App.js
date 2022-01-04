@@ -38,9 +38,17 @@ class App extends React.Component {
     }
 
     handleUserInput = (inputValue) => {
-        console.log(inputValue)
-    }
+        if (!this.state.timerStarted) this.startTimer();
+    };
     
+    startTimer = () => {
+        this.setState({ timerStarted : true });
+        const timer = setInterval(() => {
+            if (this.state.timeLeft > 0) this.setState({ timeLeft : this.state.timeLeft - 1 })
+            else clearInterval(timer);
+        }, 1000);
+    };
+
     render() {
         return (
             <div className={styles.app}>
